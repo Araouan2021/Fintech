@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Form;
 
-
-class FormController extends Controller
+class FormsController extends Controller
 {
     public function ShowAddMoneyForm(){
         return view('add-money');
@@ -21,8 +20,10 @@ class FormController extends Controller
     	return redirect()->route('forms');
     }
 
-    public function showForms(){
-    $forms = Form::all();
-    return view ('forms', compact('forms'));
-    }
+    public function showForm(){
+        $forms = Form::all();
+        return view ('forms', compact('forms'));
+        }
+
 }
+

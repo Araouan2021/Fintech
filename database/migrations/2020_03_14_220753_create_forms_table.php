@@ -15,8 +15,8 @@ class CreateFormsTable extends Migration
     {
         Schema::create('forms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('loan amount');
-            $table->integer('MOMO number');
+            $table->integer('loan amount')->nullable();
+            $table->integer('MOMO number')->nullable();
             $table->timestamps();
         });
     }

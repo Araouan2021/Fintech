@@ -21,19 +21,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
 Route::post('register', 'Auth\RegisterController@register');
-Route::get('/add-application', 'ApplicationController@ShowAddApplicationForm')->name('applications.add');
-Route::post('add', 'ApplicationController@AddApplication')->name('applications.save');
-Route::get('/applications', 'ApplicationController@ShowApplications')->name('applications');
-Route::get('/add-money', 'FormController@ShowAddMoneyForm')->name('forms.add');
-Route::post('add', 'FormController@AddMoney')->name('forms.save');
-Route::get('/forms', 'FormController@ShowForm')->name('forms');
+Route::get('/create', 'ApplicationsController@create'); 
+Route::post('applications', 'ApplicationsController@store');
 
-Route::get('applications', 'ApplicationController@index');
- 
-Route::get('applcations/create', 'ApplicationController@create');
- 
-Route::get('applcations/{id}', 'ApplicationController@show');
- 
-Route::post('applications', 'ApplicationController@store');
+//Route::get('/add-application', 'ApplicationsController@ShowAddApplicationForm')->name('applications.add');
+//Route::post('add', 'ApplicationsController@AddMoney')->name('applications.save');
+//Route::get('/applications', 'ApplicationsController@ShowApplication')->name('applications');
+//Route::get('/applications', 'ApplicationsController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/add-money', 'FormsController@ShowAddMoneyForm')->name('forms.add');
+Route::post('add', 'FormsController@AddMoney')->name('forms.save');
+Route::get('/forms', 'FormsController@ShowForm')->name('forms');
+
+

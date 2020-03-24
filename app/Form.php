@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Form extends Model
 {
-    protected $fillable = ['Loan Amount', 'Momo Number'];
+    protected $fillable = ['Loan Amount', 'Momo Number',];
 
     public function forms(){
     	return $this->belongsTo('App\Form');

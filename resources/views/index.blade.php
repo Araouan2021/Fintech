@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-
 <h1>Loan Application</h1>
 <body>
 
-<form action="{{route('applications.add')}}" method="post">
+<form method="post" action="/create">
   <div class="form-group">
     {{ csrf_field() }}
     First Name: <input type="text" class="form-control" name="First Name"><br> 
