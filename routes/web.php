@@ -23,11 +23,10 @@ Route::post('logout', 'Auth\LoginController@logout');
 Route::post('register', 'Auth\RegisterController@register');
 Route::get('/create', 'ApplicationsController@create'); 
 Route::post('applications', 'ApplicationsController@store');
-
-//Route::get('/add-application', 'ApplicationsController@ShowAddApplicationForm')->name('applications.add');
-//Route::post('add', 'ApplicationsController@AddMoney')->name('applications.save');
-//Route::get('/applications', 'ApplicationsController@ShowApplication')->name('applications');
-//Route::get('/applications', 'ApplicationsController@index');
+Route::get('/applications', 'ApplicationsController@index');
+Route::get('applications/{application}', 'ApplicationsController@show');
+Route::put('applications/{applications}', 'ApplicationsController@update');
+Route::delete('applications/{application}', 'ApplicationsController@delete');
 
 Route::get('/add-money', 'FormsController@ShowAddMoneyForm')->name('forms.add');
 Route::post('add', 'FormsController@AddMoney')->name('forms.save');

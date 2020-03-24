@@ -12,14 +12,28 @@ class ApplicationsController extends Controller
       return view('create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $application = new Application;
-        
-        $game->title = request('title');
-        $game->publisher = request('publisher');
-        $game->releasedate = request('releasedate');
-        $game->image = request()->file('image')->store('public/images');
-        $game->save();
+        $application = Application::create($request->all());
+    }
+
+    public function index()
+    {
+        return Application::all();
+    }
+
+    public function show(Application $application)
+    {
+        return $application;
+    }
+
+    public function update(Request $request, Application $application)
+    {
+        $application->update($request->all());
+    }
+
+    public function delete(Application $application)
+    {
+        $application->delete();
     }
 }
