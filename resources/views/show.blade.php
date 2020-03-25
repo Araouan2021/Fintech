@@ -1,10 +1,9 @@
 <h1>Loan Application</h1>
 <body>
 
-<form method="put" action="/applications">
+<form method="post" action="/create">
   <div class="form-group">
     {{ csrf_field() }}
-    {{ method_field('PUT') }}
     First Name: <input type="text" class="form-control" name="First Name"><br> 
     Last Name: <input type="text" name="Last Name"><br>
     Phone Number: <input type="number" name="Phone Number"><br>
@@ -15,5 +14,3 @@
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div> 
-
-

@@ -18,10 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::group(['middleware'=>'auth'], function(){
 Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout');
+Route::get('logout', 'Auth\LoginController@logout');
 Route::post('register', 'Auth\RegisterController@register');
 Route::get('/create', 'ApplicationsController@create'); 
+
+
+
 Route::post('applications', 'ApplicationsController@store');
 Route::get('/applications', 'ApplicationsController@index');
 Route::get('applications/{application}', 'ApplicationsController@show');
@@ -32,4 +37,5 @@ Route::get('/add-money', 'FormsController@ShowAddMoneyForm')->name('forms.add');
 Route::post('add', 'FormsController@AddMoney')->name('forms.save');
 Route::get('/forms', 'FormsController@ShowForm')->name('forms');
 
+//)};
 
