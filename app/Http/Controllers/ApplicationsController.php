@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Application;
 
 use\Illuminate\Http\Request;  
-use\Illuminate\Http\Response;
+//use\Illuminate\Http\Response;
 
 class ApplicationsController extends Controller
 {
@@ -24,13 +24,14 @@ class ApplicationsController extends Controller
             'farmlocation' => 'required',
             'loanamount' => 'required|numeric',
             'momonumber' => 'required|numeric'
-        ]);
+       ]);
 
         Application::create($request->all());
 
-        return redirect('/create');
+        $application->save();
+
+        return redirect('/applications');
     }
-    //}
 
     //public function store(Request $request)
     //{
@@ -61,6 +62,22 @@ class ApplicationsController extends Controller
        // $application->save();
     //}
 
+    //public function ShowAddApplicationForm(){
+        //return view('add-application');
+    //}
+
+    //public function addApplication(Request $request){
+        //$firstname = $request->firstname;
+        //$lastname = $request->lastname;
+        //$phonenumber = $request->phonenumber;
+        //$farmlocation = $request->farmlocation;
+        //$loanamount = $request->loanamount;
+        //$momonumber = $request->momonumber;
+        //Application::create(['firstname'=>$firstname, 'lastname'=>$lastname, 'phonenumber'=>$phonenumber, 'farmlocation'=>$farmlocation, 
+        //'loanamount'=>$loanamount]);
+        //return redirect()->route('applications');
+    //}
+
     public function index(){
          return Application::all();
     }
@@ -78,5 +95,10 @@ class ApplicationsController extends Controller
     public function delete(Application $application)
     {
         $application->delete();
+    }
+
+    public function showDetails($id){
+        $application = Application::find($id);
+        return view('applications-details', compact('application'));
     }
 }

@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<h1>Need cash fast?<h1>
+<h2>Welcome to Farm Loans Made Easy</h2>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
