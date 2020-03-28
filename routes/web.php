@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -27,15 +27,15 @@ Route::get('applications/create', 'ApplicationsController@create');
 //Route::get('/add-application', 'ApplicationsController@ShowAddApplicationForm')->name('applications.add');
 //Route::post('/add', 'ApplicationsController@AddApplication')->name('applications.save');
 //Route::get('/add/', [ 'as' => 'applications.save', 'applications' => 'ApplicationsController@save']);
-Route::get('/applications/details/{id}', 'ApplicationsController@showDetails')->name('applications.details');
+//Route::get('/applications/details/{id}', 'ApplicationsController@showDetails')->name('applications.details');
 
 
 
 //Route::post('/applications', 'ApplicationsController@store');
 Route::get('/applications', 'ApplicationsController@index');
-//Route::get('applications/{application}', 'ApplicationsController@show');
-//Route::put('applications/{applications}', 'ApplicationsController@update');
-//Route::delete('applications/{application}', 'ApplicationsController@delete');
+Route::get('applications/{application}', 'ApplicationsController@show');
+Route::put('applications/{applications}', 'ApplicationsController@update');
+Route::delete('applications/{application}', 'ApplicationsController@delete');
 
 Route::get('/add-money', 'FormsController@ShowAddMoneyForm')->name('forms.add');
 Route::post('add', 'FormsController@AddMoney')->name('forms.save');

@@ -97,8 +97,8 @@ class ApplicationsController extends Controller
         $application->delete();
     }
 
-    public function showDetails($id){
-        $application = Application::find($id);
-        return view('applications-details', compact('application'));
-    }
+    //public function showDetails($id){
+        //$application = Application::find($id);
+        //return view('applications-details', compact('application'));
+    //}
 }
