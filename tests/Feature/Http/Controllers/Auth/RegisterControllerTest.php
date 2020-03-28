@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Controllers\Auth;
 
+use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -17,5 +18,43 @@ class RegisterControllerTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertViewIs('auth.register');
+    }
+
+    /** @test */
+    public function register_returns_validation_error()
+    {
+        $response = $this->post('register', []);
+
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors(['name', 'email', 'password']);
+    }
+
+    /** @test */
+    public function register_creates_and_authenticates_a_user()
+    {
+        $name = $this->faker->name;
+        $email = $this->faker->safeEmail;
+        $password = $this->faker->password(8);
+
+        $response = $this->post('register', [
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+            'password_confirmation' => $password,
+        ]);
+
+        $response->assertRedirect(route('home'));
+
+        $user = User::where('email', $email)->where('name', $name)->first();
+        $this->assertNotNull($user);
+
+        $this->assertAuthenticatedAs($user);
+
+        $response->assertRedirect(route('home'));
+
+        $user = User::where('email', $email)->where('name', $name)->first();
+        $this->assertNotNull($user);
+
+        $this->assertAuthenticatedAs($user);
     }
 }
