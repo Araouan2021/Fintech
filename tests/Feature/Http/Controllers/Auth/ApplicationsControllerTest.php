@@ -28,4 +28,21 @@ class ApplicationsControllerTest extends TestCase
 
         $response->assertStatus(302);
     }
+
+    /** @test */
+    public function create_form(){
+
+        $reponse = $this->get(route('applications'));
+
+        $response->assertStatus(302);
+    }
+
+    /** @test */
+    public function store(){
+        
+        $reponse = $this->get(route('applications'));
+
+        $response->assertStatus(302);
+    }
+
 }

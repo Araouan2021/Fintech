@@ -31,9 +31,10 @@ Route::get('applications/create', 'ApplicationsController@create');
 
 
 
-//Route::post('/applications', 'ApplicationsController@store');
+
 Route::get('/applications', 'ApplicationsController@index');
 Route::get('applications/{application}', 'ApplicationsController@show');
+Route::post('applications', 'ApplicationsController@store');
 Route::put('applications/{applications}', 'ApplicationsController@update');
 Route::delete('applications/{application}', 'ApplicationsController@delete');
 

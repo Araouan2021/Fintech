@@ -14,24 +14,37 @@ class ApplicationsController extends Controller
           return view('create');
     }
 
-    public function store(Request $request)
+    public function store()
     {
-
-        $validatedData = $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'phonenumber' => 'required|numeric',
-            'farmlocation' => 'required',
-            'loanamount' => 'required|numeric',
-            'momonumber' => 'required|numeric'
-       ]);
-
-        Application::create($request->all());
-
+        $application = new Application;
+        
+        $application->firstname = request('firstname');
+        $application->lastname = request('lastname');
+        $application->phonenumber = request('phonenumber');
+        $application->farmlocation = request('farmlocation');
+        $application->loanamount = request('loanamount');
+        $application->momonumber = request('momonumber');
         $application->save();
-
-        return redirect('/applications');
     }
+
+    //public function store(Request $request)
+    //{
+
+       // $validatedData = $request->validate([
+            //'firstname' => 'required',
+            //'lastname' => 'required',
+            //'phonenumber' => 'required|numeric',
+            //'farmlocation' => 'required',
+            //'loanamount' => 'required|numeric',
+            //'momonumber' => 'required|numeric'
+       //]);
+
+        //Application::create($request->all());
+
+        //$application->save();
+
+        //return redirect('/applications');
+    //}
 
     //public function store(Request $request)
     //{
