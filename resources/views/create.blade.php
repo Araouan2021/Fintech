@@ -5,24 +5,30 @@
 </head>
 <style>
 
+body {background-color: beige;}
+
 h1 {
 	font-family: 'Abel', sans-serif;
 	color: OliveDrab;
 }
 
 input {
-	width: 100%;
-	padding: 15px 30px;
-    margin: 10px 0;
-    box-sizing: border-box;
+	width: 150px;
+	height: 25px;
+	box-sizing: border-box;
     font-family: 'Dosis', sans-serif;
     font-size: 20px;
+    color: OliveDrab;
+    font-weight: bold;
+    border: 2px solid OliveDrab;
+    border-radius: 2px;
 }
 
 body {
 	color: DarkOliveGreen;
 	font-size: 20px;
 	font-family: 'Dosis', sans-serif;
+	text-anchor: center;
 }
 
 .btn {
@@ -35,6 +41,7 @@ body {
     border: none;
     border-radius: 4px;
 }
+
 </style>
 </body>
 <h1>Loan Application</h1>
