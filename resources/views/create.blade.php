@@ -10,9 +10,18 @@ h1 {
 	color: OliveDrab;
 }
 
+input {
+	width: 100%;
+	padding: 15px 30px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+}
+
 body {
 	color: DarkOliveGreen;
-	font-size: 25px;
+	font-size: 20px;
 	font-family: 'Dosis', sans-serif;
 }
 
