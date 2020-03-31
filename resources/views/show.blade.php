@@ -1,7 +1,7 @@
 <h1>Loan Application</h1>
 <body>
 
-<form method="post" action="/create">
+<form method="post" action="/applications">
   <div class="form-group">
     {{ csrf_field() }}
     First Name: <input type="text" class="form-control" name="First Name"><br> 

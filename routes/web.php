@@ -10,12 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Application;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -23,7 +24,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::post('register', 'Auth\RegisterController@register');
-Route::get('applications/create', 'ApplicationsController@create'); 
+//Route::get('applications/create', 'ApplicationsController@create'); 
+Route::get('/create', function (){
+	$firstname = "John";
+	$lastname = "Mensah";
+	$phonenumber = "0207899087";
+	$farmlocation = "Winneba";
+	$MOMOnumber = "0207899087";
+	$loanamount = "800c";
+	Application::create(['firstname'=>$firstname, 'lastname'=>$lastname, 'phonenumber'=>$phonenumber, 'farmlocation'=>$farmlocation, 'MOMOnumber'=>$MOMOnumber, 'loanamount'=>$loanamount]);
+        return view('create');
+});
+Route::get('uploadfile','HomeController@uploadfile');
+Route::post('/uploadfile','HomeController@uploadFileImage');
 //Route::get('/add-application', 'ApplicationsController@ShowAddApplicationForm')->name('applications.add');
 //Route::post('/add', 'ApplicationsController@AddApplication')->name('applications.save');
 //Route::get('/add/', [ 'as' => 'applications.save', 'applications' => 'ApplicationsController@save']);

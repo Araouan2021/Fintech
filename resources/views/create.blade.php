@@ -24,6 +24,13 @@ input {
     border-radius: 2px;
 }
 
+content {
+  max-width: 500px;
+  margin: auto;
+  background: beige;
+  padding: 10px;
+}
+
 body {
 	color: DarkOliveGreen;
 	font-size: 20px;
@@ -44,10 +51,10 @@ body {
 
 </style>
 </body>
-<h1>Loan Application</h1>
+<h1>Farm Loans Made Easy Loan Application</h1>
 <body>
 
-<form method="post" action="/applications">
+<form method="post" action="applications">
   <div class="form-group">
     {{ csrf_field() }}
     First Name: <input type="text" class="form-control" name="First Name"><br> 

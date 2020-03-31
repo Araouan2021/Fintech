@@ -6,25 +6,27 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
+    /** Return view to upload file */
+    public function uploadFile(){
+        return view('uploadfile');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('home');
+    /** Example of File Upload */
+    public function uploadFileImage(Request $request){
+        $request->validate([
+            'fileToUpload' => 'required|file|max:1024',
+        ]);
+
+        $fileName = "fileName".time().'.'.request()->fileToUpload->getClientOriginalExtension();
+
+        $request->fileToUpload->storeAs('logos',$fileName);
+
+        return back()
+            ->with('success','You have successfully uploaded image.');
+
     }
-    
 }
+
+    
+    
+
