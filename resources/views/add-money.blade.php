@@ -47,11 +47,11 @@ body {
 <h1>SEND MONEY</h1>
 <body>
 
-<form action="{{route('forms.save')}}" method="post">
+<form action="/add" method="post">
   <div class="form-group">
     {{ csrf_field() }}
-    Amount: <input type="text" class="form-control" name="Amount"><br> 
-    MOMO number: <input type="MOMO number" name="MOMO number"><br>
+    Loan Amount: <input type="number" class="form-control" name="Loan Amount"><br> 
+    MOMO Number: <input type="number" name="MOMO Number"><br>
   </div>
 <button type="submit" class="btn btn-primary">SEND MONEY</button>
 </form>

@@ -9,7 +9,7 @@ body {background-color: beige;}
 h1 {
 	font-family: 'Ranga', cursive;
 	color: DarkOliveGreen;
-	font-size: 50px;
+	font-size: 40px;
 }
 
 </head>

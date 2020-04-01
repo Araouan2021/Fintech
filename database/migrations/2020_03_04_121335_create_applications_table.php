@@ -16,12 +16,12 @@ class CreateApplicationsTable extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('first name');
-            $table->string('last name');
-            $table->integer('phone number');
-            $table->string('farm location'); 
+            $table->string('First Name');
+            $table->string('Last Name');
+            $table->integer('Phone Number');
+            $table->string('Farm Location'); 
             $table->integer('MOMO number');
-            $table->integer('loan amount');
+            $table->integer('Loan Amount');
             $table->timestamps();
         });
     }
