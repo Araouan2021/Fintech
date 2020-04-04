@@ -11,30 +11,20 @@ class FormsController extends Controller
         return view('add-money');
     }
 
-    public function addMoney(Request $request){
-    Form::create([
-        'Loan Amount' => request('Loan Amount')->,
-        'MOMO Number' => request('MOMO Number'),
-        ]);
+    public function addMoney(){
 
-        return redirect()->route('forms');
+    Form::create(
+        [
+         'Loan Amount'=>'3000c', 
+         'MOMO Number'=>'0243214500'
+        ]
+    );
+    return redirect()->route('forms');
     }
-
-    //public function addMoney(){
-
-        //Form::create(
-            //[
-             //'loanamount'=>'1200c',
-             //'momonumber'=>'0242345676'
-            //]
-          //);         
-          //return view('add-money');
-    //}
 
     public function showForm(){
         $forms = Form::all();
         return view ('forms', compact('forms'));
         }
-
 }
 

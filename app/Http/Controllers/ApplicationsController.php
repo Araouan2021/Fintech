@@ -2,94 +2,34 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
-use App\Application;
-
 use\Illuminate\Http\Request;  
-//use\Illuminate\Http\Response;
+use App\Application;
 
 class ApplicationsController extends Controller
 {
-    public function create(){  
-          return view('create');
+   public function ShowAddApplicationForm(){
+        return view('add-application');
     }
 
-    public function store()
-    {
-        $application = new Application;
-        
-        $application->firstname = request('firstname');
-        $application->lastname = request('lastname');
-        $application->phonenumber = request('phonenumber');
-        $application->farmlocation = request('farmlocation');
-        $application->loanamount = request('loanamount');
-        $application->momonumber = request('momonumber');
-        $application->save();
+    public function addApplication(){
+
+    Application::create(
+        [
+         'First Name'=>'John', 
+         'Last Name'=>'Paul',
+         'Phone Number'=>'0207678978',
+         'Farm Location'=>'Aburi',
+         'MOMO Number'=>'0207678978',
+         'Loan Amount'=>'4000c',
+        ]
+    );
+    return view('applications');
     }
 
-    //public function store(Request $request)
-    //{
-
-       // $validatedData = $request->validate([
-            //'firstname' => 'required',
-            //'lastname' => 'required',
-            //'phonenumber' => 'required|numeric',
-            //'farmlocation' => 'required',
-            //'loanamount' => 'required|numeric',
-            //'momonumber' => 'required|numeric'
-       //]);
-
-        //Application::create($request->all());
-
-        //$application->save();
-
-        //return redirect('/applications');
-    //}
-
-    //public function store(Request $request)
-    //{
-        //$application = Application::create($request->all());
-    //}
-
-    //public function store(Request $request)
-    //{
-        //Application::create([
-
-                   //'firstname' => $request->firstname,
-                   //'lastname' => $request->lastname,
-                   //'phonenumber' => $request->phonenumber,
-                   //'farmlocation' => $request->farmlocation,
-                   //'loanamount' => $request->loanamount,
-                   //'momonumber' => $request->momonumber
-        //]);
-
-        //return redirect('/applications');
-    //}
-        
-        //$application->firstname = request('firstname');
-        //$application->lastname = request('lastname');
-        //$application->phonenumber = request('phonenumber');
-        //$application->farmlocation = request('farmlocation');
-        //$application->loanamount = request('loanamount');
-        //$application->momonumber = request()->file('momonumber')->store('public/momonumber');
-       // $application->save();
-    //}
-
-    //public function ShowAddApplicationForm(){
-        //return view('add-application');
-    //}
-
-    //public function addApplication(Request $request){
-        //$firstname = $request->firstname;
-        //$lastname = $request->lastname;
-        //$phonenumber = $request->phonenumber;
-        //$farmlocation = $request->farmlocation;
-        //$loanamount = $request->loanamount;
-        //$momonumber = $request->momonumber;
-        //Application::create(['firstname'=>$firstname, 'lastname'=>$lastname, 'phonenumber'=>$phonenumber, 'farmlocation'=>$farmlocation, 
-        //'loanamount'=>$loanamount]);
-        //return redirect()->route('applications');
-    //}
+    public function showApplication(){
+        $applications = Applications::all();
+        return view ('applications', compact('applications'));
+        }
 
     public function index(){
          return Application::all();
@@ -100,7 +40,7 @@ class ApplicationsController extends Controller
          return $application;
     }
 
-    public function update(Request $request, Application $application)
+   public function update(Request $request, Application $application)
     {
         $application->update($request->all());
     }
@@ -110,8 +50,9 @@ class ApplicationsController extends Controller
         $application->delete();
     }
 
-    //public function showDetails($id){
-        //$application = Application::find($id);
-        //return view('applications-details', compact('application'));
-    //}
+    public function showDetails($id){
+        $application = Application::find($id);
+        return view('applications-details', compact('application'));
+    }
 }
+

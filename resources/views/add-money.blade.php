@@ -34,10 +34,10 @@ body {
 .btn {
 	background-color: OliveDrab;
 	font-family: 'Abel', sans-serif;
-	font-size: 15px;
+	font-size: 20px;
     color: white;
     padding: 12px 20px;
-    margin: 10px;
+    margin: 20px;
     border: none;
     border-radius: 4px;
 }
@@ -53,6 +53,6 @@ body {
     Loan Amount: <input type="number" class="form-control" name="Loan Amount"><br> 
     MOMO Number: <input type="number" name="MOMO Number"><br>
   </div>
-<button type="submit" class="btn btn-primary">SEND MONEY</button>
+<button type="submit" class="btn btn-primary" onclick="clickAlert()" value="Your money has been sent!">SEND MONEY</button>
 </form>
 </div> 
