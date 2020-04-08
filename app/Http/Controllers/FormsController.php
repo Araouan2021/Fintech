@@ -7,16 +7,16 @@ use App\Form;
 
 class FormsController extends Controller
 {
-    public function ShowAddMoneyForm(){
-        return view('add-money');
+    public function ShowSaveMoneyForm(){
+        return view('save-money');
     }
 
-    public function addMoney(){
+    public function saveMoney(){
 
     Form::create(
         [
-         'Loan Amount'=>'3000c', 
-         'MOMO Number'=>'0243214500'
+         'Loan Amount'=>'2000c', 
+         'MOMO Number'=>'0208907890',
         ]
     );
     return redirect()->route('forms');

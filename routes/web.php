@@ -11,6 +11,7 @@
 |
 */
 use App\Application;
+use App\Form;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,14 +28,15 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('uploadfile','HomeController@uploadfile');
 Route::post('/uploadfile','HomeController@uploadFileImage');
 Route::get('/add-application', 'ApplicationsController@ShowAddApplicationForm')->name('applications.add');
-Route::post('/add', 'ApplicationsController@AddApplication');
-Route::get('/applications', 'ApplicationsController@index');
+Route::post('/add', 'ApplicationsController@AddApplication')->name('applications.save');
+Route::get('/applications', 'ApplicationsController@index')->name('applications');
 Route::get('applications/{application}', 'ApplicationsController@show');
-Route::post('applications', 'ApplicationsController@store');
 Route::put('applications/{applications}', 'ApplicationsController@update');
 Route::delete('applications/{application}', 'ApplicationsController@delete');
+Route::get('/applications/details/{id}', 'ApplicationsController@showDetails')->name('applications.details');
 
-Route::get('/add-money', 'FormsController@ShowAddMoneyForm')->name('forms.add');
-Route::post('/add', 'FormsController@AddMoney');
+
+Route::get('/save-money', 'FormsController@ShowSaveMoneyForm')->name('forms.save');
+Route::post('/save', 'FormsController@SaveMoney');
 Route::get('/forms', 'FormsController@ShowForm')->name('forms');
-
+//});

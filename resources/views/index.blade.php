@@ -2,7 +2,6 @@
 <body>
 
 <form method="post" action="/applications">
-@foreach($applications as $application)
   <div class="form-group">
     {{ csrf_field() }}
     First Name: <input type="text" class="form-control" name="First Name"><br> 
@@ -14,5 +13,4 @@
   </div>
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-@endforeach
 </div> 

@@ -11,25 +11,37 @@ class ApplicationsController extends Controller
         return view('add-application');
     }
 
-    public function addApplication(){
 
-    Application::create(
-        [
-         'First Name'=>'John', 
-         'Last Name'=>'Paul',
-         'Phone Number'=>'0207678978',
-         'Farm Location'=>'Aburi',
-         'MOMO Number'=>'0207678978',
-         'Loan Amount'=>'4000c',
-        ]
-    );
-    return view('applications');
+    public function addApplication(Request $request){
+        $firstname = $request->firstname;
+        $lastname = $request->lastname;
+        $phonenumber = $request->phonenumber;
+        $farmlocation = $request->farmlocation;
+        $momonumber = $request->momonumber;
+        $loanamount = $request->loanamount;
+        Application::create(['firstname'=>'firstname', 'lastname'=>'lastname', 'phonenumber'=>'phonenumber', 'farmlocation'=>'farmlocation', 'momonumber'=>'momonumber', 'loanamount'=>'loanamount']);
+        return redirect()->route('applications');
     }
 
-    public function showApplication(){
+    public function showApplications(){
         $applications = Applications::all();
         return view ('applications', compact('applications'));
         }
+
+    //public function saveApplication(Request $request){
+        //$firstname = $request->firstname;
+        //$lastname = $request->lastname;
+
+        //$application = Application::find($id);
+        //$application->application()->create(['firstname'=>$firstname, 'lastname'=>$lastname]);
+
+        //return redirect()->route('applications');
+    //}
+
+    //public function showDetails($id){
+        //$application = Application::find($id);
+        //return view ('applications-details', compact('application'));
+    //}
 
     public function index(){
          return Application::all();
@@ -48,11 +60,6 @@ class ApplicationsController extends Controller
     public function delete(Application $application)
     {
         $application->delete();
-    }
-
-    public function showDetails($id){
-        $application = Application::find($id);
-        return view('applications-details', compact('application'));
     }
 }
 

@@ -46,13 +46,12 @@ body {
 </body>
 <h1>SEND MONEY</h1>
 <body>
-
-<form action="/add" method="post">
+<form action="/save" method="post">
   <div class="form-group">
     {{ csrf_field() }}
     Loan Amount: <input type="number" class="form-control" name="Loan Amount"><br> 
     MOMO Number: <input type="number" name="MOMO Number"><br>
   </div>
-<button type="submit" class="btn btn-primary" onclick="clickAlert()" value="Your money has been sent!">SEND MONEY</button>
+<button type="submit" class="btn btn-primary">SEND MONEY</button>
 </form>
 </div> 
