@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /** Return view to upload file */
+    
+    //Return view to upload file 
     public function uploadFile(){
         return view('uploadfile');
     }

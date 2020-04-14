@@ -1,16 +1,22 @@
-<h1>Loan Application</h1>
-<body>
-
-<form method="post" action="/applications">
-  <div class="form-group">
-    {{ csrf_field() }}
-    First Name: <input type="text" class="form-control" name="First Name"><br> 
-    Last Name: <input type="text" name="Last Name"><br>
-    Phone Number: <input type="number" name="Phone Number"><br>
-    Farm Location: <input type="text" name="Farm Location"><br>
-    Loan Amount: <input type="number" name="Loan Amount"><br>
-    MOMO number: <input type="number" name="MOMO number"><br>
-  </div>
-<button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div> 
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1 style="text-align: center; color: DarkRed; font-size: 75px; font-family: 'Questrial', sans-serif;, sans-serif; font-weight: bold;">Pantry</h1>
+      <h3 style="color: SaddleBrown; font-family: 'Allura', cursive; font-size: 40px;">Showing Recipes For: &nbsp; ingredients </h3>
+      <hr>
+      @foreach($recipes as $recipe)
+        <div class="recipe-details">
+        <a href="{{route('recipes', 'recipe->file')}}">       
+        <img src="{{ asset('storage/logos/' . $recipe->image)}}"
+             class="img-responsive img-thumbnail">
+             <p>{{ $recipe->size }}</p>
+        </a>
+          <h2 style="color: DarkRed; font-size: 40px; font-family: 'Khand', sans-serif;"></u>Title<br></h2>
+          <p style="font-family: 'Molengo', sans-serif; font-size: 15px;""><u>Ingredients</u><br></p>
+          <p style="font-family: 'Molengo', sans-serif; font-size: 15px;"><u>Method</u><br></p>
+          <p style="font-family: 'Molengo', sans-serif; font-size: 15px;"><u>Serving size</u><br></p>
+          <p style="font-family: 'Molengo', sans-serif; font-size: 15px;"><u>Time</u><br></p>
+        </div>
+        </div>
+      @endforeach

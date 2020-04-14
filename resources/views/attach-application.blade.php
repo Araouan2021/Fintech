@@ -13,7 +13,7 @@ h1 {
 }
 
 input {
-	width: 100px;
+	width: 150px;
 	height: 25px;
 	box-sizing: border-box;
     font-family: 'Dosis', sans-serif;
@@ -22,6 +22,13 @@ input {
     font-weight: bold;
     border: 2px solid OliveDrab;
     border-radius: 2px;
+}
+
+content {
+  max-width: 500px;
+  margin: auto;
+  background: beige;
+  padding: 10px;
 }
 
 body {
@@ -44,14 +51,20 @@ body {
 
 </style>
 </body>
-<h1>SEND MONEY</h1>
+<h1>Farm Loans Made Easy Loan Application</h1>
 <body>
-<form action="/save" method="post">
+<form action="/attach" method="post">
   <div class="form-group">
     {{ csrf_field() }}
-    Loan Amount: <input type="number" class="form-control" name="Loan Amount"><br> 
-    MOMO Number: <input type="number" name="MOMO Number"><br>
+    First Name: <input type="text" class="form-control" name="First Name"><br> 
+    Last Name: <input type="text" name="Last Name"><br>
+    Phone Number: <input type="number" name="Phone Number"><br>
+    Farm Location: <input type="text" name="Farm Location"><br>
+    Loan Amount: <input type="number" name="Loan Amount"><br>
+    MOMO number: <input type="number" name="MOMO Number"><br>
   </div>
-<button type="submit" class="btn btn-primary">SEND MONEY</button>
+<button type="submit" class="btn btn-primary">Submit</button>
 </form>
-</div> 
+</div>
+
+

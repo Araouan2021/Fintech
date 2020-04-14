@@ -7,24 +7,31 @@ use App\Form;
 
 class FormsController extends Controller
 {
-    public function ShowSaveMoneyForm(){
-        return view('save-money');
+    public function ShowAddMoneyForm(){
+        return view('add-money');
     }
 
-    public function saveMoney(){
+    public function addMoney(Request $request){
+        $loanamount = $request->loanamount;
+        $momonumber = $request->momonumber;
+        Form::create(['loanamount'=>$loanamount, 'momonumber'=>$momonumber]);
 
-    Form::create(
-        [
-         'Loan Amount'=>'2000c', 
-         'MOMO Number'=>'0208907890',
-        ]
-    );
-    return redirect()->route('forms');
+        return redirect()->route('forms');
     }
 
-    public function showForm(){
+    public function showForms(){
         $forms = Form::all();
-        return view ('forms', compact('forms'));
+        return view ('forms');
         }
+
+    public function index(){
+         return Form::all();
+    }
+
+    public function show(Form $form)
+    {
+         return $form;
+    }
+
 }
 

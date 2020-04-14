@@ -7,36 +7,27 @@ use App\Application;
 
 class ApplicationsController extends Controller
 {
-   public function ShowAddApplicationForm(){
-        return view('add-application');
+   public function ShowAttachApplicationForm(){
+        return view('attach-application');
     }
 
 
-    public function addApplication(Request $request){
+    public function attachApplication(Request $request){
         $firstname = $request->firstname;
         $lastname = $request->lastname;
         $phonenumber = $request->phonenumber;
         $farmlocation = $request->farmlocation;
         $momonumber = $request->momonumber;
         $loanamount = $request->loanamount;
-        Application::create(['firstname'=>'firstname', 'lastname'=>'lastname', 'phonenumber'=>'phonenumber', 'farmlocation'=>'farmlocation', 'momonumber'=>'momonumber', 'loanamount'=>'loanamount']);
+        Application::create(['firstname'=>$firstname, 'lastname'=>$lastname, 'phonenumber'=>$phonenumber, 'farmlocation'=>$farmlocation, 'momonumber'=>$momonumber, 'loanamount'=>$loanamount]);
+
         return redirect()->route('applications');
     }
 
     public function showApplications(){
-        $applications = Applications::all();
-        return view ('applications', compact('applications'));
+        $applications = Application::all();
+        return view ('applications');
         }
-
-    //public function saveApplication(Request $request){
-        //$firstname = $request->firstname;
-        //$lastname = $request->lastname;
-
-        //$application = Application::find($id);
-        //$application->application()->create(['firstname'=>$firstname, 'lastname'=>$lastname]);
-
-        //return redirect()->route('applications');
-    //}
 
     //public function showDetails($id){
         //$application = Application::find($id);
