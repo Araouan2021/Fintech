@@ -18,10 +18,10 @@ class CreateApplicationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('First Name');
             $table->string('Last Name');
-            $table->integer('Phone Number');
+            $table->string('Phone Number');
             $table->string('Farm Location'); 
-            $table->integer('MOMO number');
-            $table->integer('Loan Amount');
+            $table->string('MOMO number');
+            $table->string('Loan Amount');
             $table->timestamps();
         });
     }

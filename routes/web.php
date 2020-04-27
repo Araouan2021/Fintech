@@ -19,16 +19,16 @@ Route::get('/', function () {
 
 //Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::group(['middleware'=>'auth'], function(){
-Route::post('login', 'Auth\LoginController@login');
+Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::post('register', 'Auth\RegisterController@register');
-Route::get('uploadfile','HomeController@uploadfile');
+Route::get('uploadfile','HomeController@uploadFilePost');
 Route::post('/uploadfile','HomeController@uploadFileImage');
 Route::get('/attach-application', 'ApplicationsController@ShowAttachApplicationForm')->name('applications.attach');
-Route::post('/attach', 'ApplicationsController@AttachApplication')->name('applications.save');
+Route::post('/attach', 'ApplicationsController@save')->name('applications.save');
 Route::get('/applications', 'ApplicationsController@index')->name('applications');
 Route::get('applications/{application}', 'ApplicationsController@show');
 Route::put('applications/{applications}', 'ApplicationsController@update');

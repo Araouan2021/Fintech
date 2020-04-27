@@ -12,7 +12,7 @@ class ApplicationsController extends Controller
     }
 
 
-    public function attachApplication(Request $request){
+    public function save(Request $request){
         $firstname = $request->firstname;
         $lastname = $request->lastname;
         $phonenumber = $request->phonenumber;
