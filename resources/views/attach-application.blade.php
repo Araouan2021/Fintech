@@ -53,7 +53,7 @@ body {
 </body>
 <h1>Farm Loans Made Easy Loan Application</h1>
 <body>
-<form action="/attach" method="post">
+<form action="{{route('applications.save')}}" method="post">
   <div class="form-group">
     {{ csrf_field() }}
     First Name: <input type="text" class="form-control" name="First Name"><br> 

@@ -25,8 +25,8 @@ Route::get('/', function () {
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::post('register', 'Auth\RegisterController@register');
-Route::get('uploadfile','HomeController@uploadFilePost');
-Route::post('/uploadfile','HomeController@uploadFileImage');
+Route::get('/uploadfile','HomeController@uploadfile');
+Route::post('/uploadfile','HomeController@uploadFilePost');
 Route::get('/attach-application', 'ApplicationsController@ShowAttachApplicationForm')->name('applications.attach');
 Route::post('/attach', 'ApplicationsController@save')->name('applications.save');
 Route::get('/applications', 'ApplicationsController@index')->name('applications');

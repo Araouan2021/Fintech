@@ -12,16 +12,17 @@ class FormsController extends Controller
     }
 
     public function addMoney(Request $request){
-        $loanamount = $request->loanamount;
-        $momonumber = $request->momonumber;
-        Form::create(['loanamount'=>$loanamount, 'momonumber'=>$momonumber]);
+        Form::create([
+        'loanamount' => request('loanamount'),
+        'momonumber' => request('momonumber')
+        ]);
 
         return redirect()->route('forms');
     }
 
     public function showForms(){
         $forms = Form::all();
-        return view ('forms');
+        return view ('forms', compact('forms'));
         }
 
     public function index(){
