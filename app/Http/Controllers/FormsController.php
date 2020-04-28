@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Form;
+use Illuminate\Http\Request;
 
 class FormsController extends Controller
 {
@@ -18,6 +19,17 @@ class FormsController extends Controller
         ]);
 
         return redirect()->route('forms');
+    }
+
+    public function store(Request $request)
+    {
+
+        $form = new Form;
+
+        $form->loanamount = $request->loanamount;
+        $form->momonumber = $request->momonumber;
+
+        $form->save();
     }
 
     public function showForms(){

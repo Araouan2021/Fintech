@@ -17,11 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Auth::routes();
+Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::group(['middleware'=>'auth'], function(){
+Route::group(['middleware'=>'auth'], function(){
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::post('register', 'Auth\RegisterController@register');
@@ -40,4 +40,4 @@ Route::get('/add-money', 'FormsController@ShowAddMoneyForm')->name('forms.add');
 Route::post('/add', 'FormsController@AddMoney')->name('forms.save');
 Route::get('/forms', 'FormsController@index')->name('forms');
 Route::get('forms/{form}', 'FormsController@show');
-//});
+});
